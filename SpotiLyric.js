@@ -38,6 +38,16 @@ function reset() {
     artistName.textContent = "Artist Name";
     clearLyrics();
     imgElement.src = "default-image.png";
+    cardViewDiv.style.backgroundColor = "#00a573";
+    document.body.style.backgroundColor = "#00a573";
+    cardDiv.style.backgroundColor = "#1db954";
+    songTitle.style.color = 'black';
+    artistName.style.color = 'black';
+    lyricsDiv.style.color = 'black';
+    document.getElementById('color-square').style.backgroundColor = "#1db954";
+    document.getElementById('color-square2').style.backgroundColor = "#00a573";
+    document.getElementById('color-square3').style.backgroundColor = "black";
+    document.getElementById('logo-text').style.color = "black";
   }
 }
 
@@ -77,13 +87,13 @@ pickr.on("change", (color, instance) => {
   const rgbaColor = color.toRGBA().toString();
   cardViewDiv.style.backgroundColor = rgbaColor;
   document.body.style.backgroundColor = rgbaColor;
+  document.getElementById('color-square').style.backgroundColor = rgbaColor;
 });
 
 const pickr2 = Pickr.create({
   el: ".color-picker2",
   theme: "nano", 
   default: "#ffffff",
-  appClass: 'pickr-class',
   position: "bottom-middle",
 
   swatches: [
@@ -115,6 +125,8 @@ const pickr2 = Pickr.create({
 pickr2.on("change", (color, instance) => {
   const rgbaColor2 = color.toRGBA().toString();
   cardDiv.style.backgroundColor = rgbaColor2;
+  document.getElementById('color-square2').style.backgroundColor = rgbaColor2;
+
 });
 
 const pickr3 = Pickr.create({
@@ -150,10 +162,10 @@ const pickr3 = Pickr.create({
 
 pickr3.on("change", (color, instance) => {
   const rgbaColor3 = color.toRGBA().toString();
-
   lyricsDiv.style.color = rgbaColor3;
   songTitle.style.color = rgbaColor3;
   artistName.style.color = rgbaColor3;
+  document.getElementById('color-square3').style.backgroundColor = rgbaColor3;
 });
 
 const lightModeLogo = document.getElementById("light-mode-logo");
