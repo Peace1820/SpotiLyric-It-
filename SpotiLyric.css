@@ -66,13 +66,12 @@ body {
     padding: 20px; 
     margin-top: 10px; 
     margin-bottom: 100px; 
-    transform: scale(1.6) !important;
+    transform: scale(1.35) !important;
   }
 
   form {
     display: flex;
     justify-content: center;
-    
     transform: scale(1.6) !important;
     z-index: 2;
     max-height: 600px; 
@@ -340,9 +339,39 @@ form {
 
 .color-pickers {
   display: flex;
-  gap: 5px;
+  gap: 8px;
+  position: relative;
  
 }
+
+#color-square, 
+#color-square2, 
+#color-square3 {
+  
+  height: 28px;
+  width: 29px;;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#color-square {
+  background-color:  #1db954;
+  left: -1.55px;
+}
+
+#color-square2 {
+  background-color: var(--color);
+  left: 33.5px;
+}
+
+#color-square3 {
+  background-color: black;
+  left: 67.95px;
+}
+
+
 
 .download-button-container {
   display: flex;
