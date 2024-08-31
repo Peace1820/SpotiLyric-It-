@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotiLyric it!</title>
+    
+    <link href="SpotiLyric.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="card-view" id="card-view">
+            <div class="card" id="card" >
+                <div class="info-section" id="info">
+                    <div class="album-img" id="album-img">
+                        <img id="album-img-src" src="default-image.png" alt="Your Image">
+                    </div>
+                    <div class="info-text" id="info-text">
+                        <h1 contenteditable="True" id="title">Song Title</h1>
+                        <p  contenteditable="True" id="artist">Artist Name</p>
+                    </div>
+                </div>
+                <div contenteditable="True" id="lyrics"></div>
+                
+                <div class="logo">
+                    <svg id="light-mode-logo" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Spotify-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-200.000000, -460.000000)" fill="#00DA5A"> <path d="M238.16,481.36 C230.48,476.8 217.64,476.32 210.32,478.6 C209.12,478.96 207.92,478.24 207.56,477.16 C207.2,475.96 207.92,474.76 209,474.4 C217.52,471.88 231.56,472.36 240.44,477.64 C241.52,478.24 241.88,479.68 241.28,480.76 C240.68,481.6 239.24,481.96 238.16,481.36 M237.92,488.08 C237.32,488.92 236.24,489.28 235.4,488.68 C228.92,484.72 219.08,483.52 211.52,485.92 C210.56,486.16 209.48,485.68 209.24,484.72 C209,483.76 209.48,482.68 210.44,482.44 C219.2,479.8 230,481.12 237.44,485.68 C238.16,486.04 238.52,487.24 237.92,488.08 M235.04,494.68 C234.56,495.4 233.72,495.64 233,495.16 C227.36,491.68 220.28,490.96 211.88,492.88 C211.04,493.12 210.32,492.52 210.08,491.8 C209.84,490.96 210.44,490.24 211.16,490 C220.28,487.96 228.2,488.8 234.44,492.64 C235.28,493 235.4,493.96 235.04,494.68 M224,460 C210.8,460 200,470.8 200,484 C200,497.2 210.8,508 224,508 C237.2,508 248,497.2 248,484 C248,470.8 237.32,460 224,460" id="Spotify"> </path> </g> </g> </g>
+                    </svg>
+                    <svg id="dark-mode-logo" xmlns="http://www.w3.org/2000/svg" id="spotify-dark" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15,3C8.4,3,3,8.4,3,15s5.4,12,12,12s12-5.4,12-12S21.6,3,15,3z M19.731,21c-0.22,0-0.33-0.11-0.55-0.22 c-1.65-0.991-3.74-1.54-5.94-1.54c-1.21,0-2.53,0.22-3.63,0.44c-0.22,0-0.44,0.11-0.55,0.11c-0.44,0-0.77-0.33-0.77-0.77 s0.22-0.77,0.66-0.77c1.43-0.33,2.861-0.55,4.401-0.55c2.53,0,4.84,0.66,6.82,1.76c0.22,0.22,0.44,0.33,0.44,0.77 C20.39,20.78,20.06,21,19.731,21z M20.94,17.921c-0.22,0-0.44-0.11-0.66-0.22c-1.87-1.21-4.511-1.87-7.37-1.87 c-1.43,0-2.751,0.22-3.74,0.44c-0.22,0.11-0.33,0.11-0.55,0.11c-0.55,0-0.881-0.44-0.881-0.881c0-0.55,0.22-0.77,0.77-0.991 c1.32-0.33,2.641-0.66,4.511-0.66c3.08,0,5.94,0.77,8.361,2.2c0.33,0.22,0.55,0.55,0.55,0.881 C21.82,17.48,21.491,17.921,20.94,17.921z M22.37,14.4c-0.22,0-0.33-0.11-0.66-0.22c-2.2-1.21-5.39-1.98-8.47-1.98 c-1.54,0-3.19,0.22-4.621,0.55c-0.22,0-0.33,0.11-0.66,0.11c-0.66,0.111-1.1-0.44-1.1-1.099s0.33-0.991,0.77-1.1 C9.39,10.22,11.26,10,13.24,10c3.41,0,6.93,0.77,9.681,2.2c0.33,0.22,0.66,0.55,0.66,1.1C23.471,13.96,23.03,14.4,22.37,14.4z"></path>
+                    </svg>
+                    
+                    <span id="logo-text">Spotify.</span>
+                </div>
+            
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+       
+            <form>
+
+                <div class="color-pickers">
+                    <div class="color-picker"></div>
+                    <div class="color-picker2"></div>
+                    <div class="color-picker3"></div>
+                    <input type="checkbox" id="toggle">
+                 </div>
+ 
+
+                <div class="large-buttons">
+                    <div class="upload-container">
+                        <label for="imageUpload" class="custom-file-upload">Upload an album cover</label>
+                        <input type="file" id="imageUpload" accept="image/*">
+                    </div>
+                   
+                    <div class="reset-container">
+                        <button id="button6" type="button">Reset</button>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <button id="button4" type="button">Delete</button>
+                    <button id="button5" type="button">Clear lyrics</button>
+                </div>
+
+               
+                <div class="download-button-container">
+                  <button id="download-button" type="button">Download Card as JPG</button>
+                </div>
+                <div class="guide">
+                        <p>
+                            Ctrl + Z to remove one line of lyrics <br>
+                            Shift + A to clear all the lyrics <br>
+                            Shift + Alt to reset the card <br>
+                            Ctrl + Alt + S to download <br>
+                            Click on the logo to invert it's color
+                        </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="SpotiLyric.js"></script>
+</body>
+
+</html>

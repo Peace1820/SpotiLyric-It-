@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --color: #00a573;
+}
+
+/* latin */
+
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v34/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pbCIPrE.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 10px;
+  background-color: #1db954;
+  border: 2px transparent;
+  border-radius: 5px;
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.811);
+  width: 300px;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 40em) {
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; /* Align items to the start */
+    height: 100vh;
+    width: 50vw;
+    z-index: -1;
+  }
+
+  .card {
+    width: 100%; 
+    max-width: 600px; 
+    padding: 20px; 
+    margin-top: 10px; 
+    margin-bottom: 100px; 
+    transform: scale(1.6) !important;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    
+    transform: scale(1.6) !important;
+    z-index: 2;
+    max-height: 600px; 
+    
+  }
+
+  .form-container {
+    display: flex;
+    height: 960px; 
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(35, 33, 33);
+    width: 50%;
+    z-index: 1;
+  }
+
+  .input-container button {
+    width: 70px;
+    margin-left: 10px;
+  }
+
+  #button6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  svg {
+    transform: scale(1);
+  }
+
+  .guide p {
+    display: block !important; 
+    font-family: 'Raleway';
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 8px;
+    line-height: 20px;
+
+  }
+}
+
+.card-view {
+  background-color: var(--color);
+  margin: 5px 0;
+  padding: 45px 0;
+}
+
+.info-section {
+  display: grid;
+  color: rgb(0, 0, 0);
+  grid-template-columns: 100px 220px;
+  overflow-wrap: break-word;
+  margin: 2rem 0.5rem 1.7rem 0.1rem;
+}
+
+.info-text {
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+h1 {
+  font-size: 1rem;
+  padding: 1.4rem 0;
+  padding-bottom: 0.1rem;
+  font-family: Helvetica;
+}
+
+p {
+  font-size: 0.9rem;
+  padding: 0.2rem 0rem;
+  font-family: Helvetica;
+}
+
+#lyrics:focus {
+  outline: white solid 1px;
+  border-radius: 2px;
+}
+
+.album-img img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+#info-text h1:focus {
+  outline: none;
+}
+
+#info-text p:focus {
+  outline: none;
+}
+
+#lyrics,
+#lyrics p {
+  padding: 0.6rem 0 1.7rem 0.3rem;
+  color: black;
+  font-family: "Raleway";
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 0.2rem;
+  line-height: 1.8rem;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.logo {
+  display: flex;
+  height: 10px;
+  width: 75px;
+  align-items: center;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  color: rgb(93, 167, 76);
+}
+
+#logo-text {
+  color: rgb(0, 0, 0);
+  font-family: "Raleway";
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-top: 2px;
+  z-index: 100;
+}
+
+svg {
+  width: 100px;
+  height: 10px;
+  display: none;
+  transform: scale(2);
+}
+
+#dark-mode-logo {
+  width: 100px;
+  height: 12px;
+  display: block;
+  transform: scale(2);
+}
+
+#toggle-logo {
+  background-color: rgb(35, 33, 33);
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  height: 860px;
+  background-color: rgb(35, 33, 33);
+  padding: 30px 5px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+}
+
+.input-container button {
+  width: 55%;
+  padding: 15px 30px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-wrap: nowrap;
+}
+
+.large-buttons {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  padding-top: 20px;
+}
+
+.upload-container {
+  font-family: "Raleway";
+  border-color: black;
+}
+
+.reset-container button,
+.custom-file-upload {
+  padding: 5px 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: rgb(31, 22, 22);
+  cursor: pointer;
+  border-color: black;
+  font-size: 16px;
+  font-family: "Raleway";
+  height: 34px;
+}
+
+.reset-container button {
+  background-color: #b46e68;
+}
+
+.custom-file-upload {
+  background-color: #4ab9db;
+}
+
+#imageUpload {
+  display: none;
+}
+
+#toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 60px;
+  height: 27px;
+  border-radius: 2px;
+  background-color: #03ffc0;
+  position: relative;
+  right: -2px;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  z-index: 1;
+  
+}
+
+#toggle::before {
+  content: "";
+  width: 25px;
+  height: 21px;
+  border-radius: 2px;
+  background: #333;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in;
+}
+
+#toggle:checked {
+  background: #333;
+}
+
+#toggle:checked::before {
+  background: white;
+  left: 32px;
+}
+
+.color-pickers {
+  display: flex;
+  gap: 5px;
+ 
+}
+
+.download-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-button-container button {
+  padding: 5px;
+  background-color: #007bff;
+  color: white;
+  border: black solid 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Bebas Neue";
+  font-size: 16px;
+  letter-spacing: 2px;
+  width: 265px;
+}
+
+.download-button-container button:hover {
+  background-color: #0056b3;
+}
+
+.guide p {
+  display: none;  
+}
