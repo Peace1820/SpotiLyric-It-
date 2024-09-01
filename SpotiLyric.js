@@ -1,11 +1,9 @@
 const songTitle = document.getElementById("title");
 const artistName = document.getElementById("artist");
-const lyricsDiv = document.getElementById("lyrics");
+const lyricsText = document.getElementById("lyrics-text");
 
 const clearLyricsLine = document.getElementById("button4");
 const clearAllLyrics = document.getElementById("button5");
-const songLyrics = document.getElementById("lyrics");
-const songLyricsInput = document.getElementById("lyrics-text");
 const resetCard = document.getElementById("button6");
 
 const cardViewDiv = document.getElementById("card-view");
@@ -16,38 +14,46 @@ const downloadButton = document.getElementById("download-button");
 
 // Remove last line
 function removeLine() {
-  const lastLine = songLyrics.lastElementChild;
+  const lastLine = lyricsText.lastElementChild;
   if (lastLine) {
     lastLine.remove();
   }
 }
 
 function clearLyrics() {
-  while (songLyrics.firstChild) {
-    songLyrics.removeChild(songLyrics.firstChild);
+
+  const lyricClearConfirmation = window.confirm(
+    "All lyrics of the card will be cleared!"
+  );
+
+  if (lyricClearConfirmation) {
+  while (lyricsText.firstChild) {
+    lyricsText.removeChild(lyricsText.firstChild);
   }
+}
 }
 
 function reset() {
-  const confirmation = window.confirm(
+  const resetCardConfirmation = window.confirm(
     "All contents of the card will be cleared!"
   );
-  if (confirmation) {
+  if (resetCardConfirmation) {
     const imgElement = document.getElementById("album-img-src");
     songTitle.textContent = "Song Title";
     artistName.textContent = "Artist Name";
-    clearLyrics();
+    lyricsText.textContent = "Song Lyrics";
     imgElement.src = "default-image.png";
     cardViewDiv.style.backgroundColor = "#00a573";
     document.body.style.backgroundColor = "#00a573";
     cardDiv.style.backgroundColor = "#1db954";
     songTitle.style.color = 'black';
     artistName.style.color = 'black';
-    lyricsDiv.style.color = 'black';
+    lyricsText.style.color = 'black';
     document.getElementById('color-square').style.backgroundColor = "#1db954";
     document.getElementById('color-square2').style.backgroundColor = "#00a573";
     document.getElementById('color-square3').style.backgroundColor = "black";
     document.getElementById('logo-text').style.color = "black";
+    
   }
 }
 
@@ -162,7 +168,7 @@ const pickr3 = Pickr.create({
 
 pickr3.on("change", (color, instance) => {
   const rgbaColor3 = color.toRGBA().toString();
-  lyricsDiv.style.color = rgbaColor3;
+  lyricsText.style.color = rgbaColor3;
   songTitle.style.color = rgbaColor3;
   artistName.style.color = rgbaColor3;
   document.getElementById('color-square3').style.backgroundColor = rgbaColor3;
@@ -178,23 +184,30 @@ function toggleFunction() {
         darkModeLogo.style.display = 'none';
         songTitle.style.color = 'white';
         artistName.style.color = 'white';
-        lyricsDiv.style.color = 'white';
+        lyricsText.style.color = 'white';
         cardDiv.style.backgroundColor = '#111111';
         cardViewDiv.style.backgroundColor = '#252525';
         document.body.style.backgroundColor = '#252525';
         document.getElementById('logo-text').style.color = 'white';
+        document.getElementById('color-square').style.backgroundColor = '#252525' ;
+        document.getElementById('color-square2').style.backgroundColor = '#111111' ;
+        document.getElementById('color-square3').style.backgroundColor = 'white' ;
+        
     } 
+
     else {
         lightModeLogo.style.display = 'none';
         darkModeLogo.style.display = 'block';
         songTitle.style.color = 'black';
         artistName.style.color = 'black';
-        lyricsDiv.style.color = 'black';
+        lyricsText.style.color = 'black';
         cardDiv.style.backgroundColor = '#1DB954';
         cardViewDiv.style.backgroundColor = '#00A573';
         document.body.style.backgroundColor = '#00A573';
         document.getElementById('logo-text').style.color = 'black';
-
+        document.getElementById('color-square').style.backgroundColor = '#00A573' ;
+        document.getElementById('color-square2').style.backgroundColor = '#1DB954' ;
+        document.getElementById('color-square3').style.backgroundColor = 'black' ;
     }
 }
 
@@ -254,8 +267,7 @@ function downloadCardAsJPG() {
       })
       .then(function (dataUrl) {
         const link = document.createElement("a");
-        const songTitle =
-          document.getElementById("title").textContent.trim() || "card";
+        const songTitle = document.getElementById("title").textContent.trim() || "card";
         const fileName = songTitle.replace(/(<([^>]+)>)/gi, "") + ".jpeg";
         link.download = fileName;
         link.href = dataUrl;
@@ -273,10 +285,8 @@ function downloadCardAsJPG() {
   });
 }
 
-document
-  .getElementById("download-button")
-  .addEventListener("click", function () {
-    downloadCardAsJPG();
+document.getElementById("download-button").addEventListener("click", function () {
+  downloadCardAsJPG();
   });
 
 // Event Listeners
@@ -309,9 +319,8 @@ downloadButton.addEventListener("click", function () {
   downloadCardAsJPG();
 });
 
-// Keypress Functionality
 
-// Additional Key Shortcuts
+// Keypress Functionality
 document.addEventListener("keydown", function (event) {
   if (event.ctrlKey && event.key === "z") {
     event.preventDefault();
@@ -320,15 +329,14 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.shiftKey && event.key === "A") {
+  if (event.shiftKey && event.altKey && event.key === "C") {
     event.preventDefault();
-    console.log("clear all");
     clearLyrics();
   }
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.altKey && event.shiftKey) {
+  if (event.shiftKey && event.altKey && event.key === "R") {
     event.preventDefault();
     reset();
   }
@@ -343,7 +351,12 @@ document.addEventListener("keydown", function (event) {
 });
 
 // Image Upload
+document.getElementById("album-img").addEventListener("click", function () {
+  document.getElementById("imageUpload").click(); 
+});
+
 document.getElementById("imageUpload").addEventListener("change", function () {
+  console.log("Image upload");
   const fileInput = document.getElementById("imageUpload");
   const file = fileInput.files[0];
   if (file) {
