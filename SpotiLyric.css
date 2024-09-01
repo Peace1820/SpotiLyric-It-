@@ -45,8 +45,12 @@ body {
   border-radius: 5px;
   box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.811);
   width: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   z-index: 2;
+}
+
+.card-content {
+  margin-left: 16px;
 }
 
 /* Desktop styles */
@@ -75,6 +79,7 @@ body {
     transform: scale(1.6) !important;
     z-index: 2;
     max-height: 600px; 
+    margin-top: -150px !important;
     
   }
 
@@ -152,11 +157,6 @@ p {
   font-family: Helvetica;
 }
 
-#lyrics:focus {
-  outline: white solid 1px;
-  border-radius: 2px;
-}
-
 .album-img img {
   width: 70px;
   height: 70px;
@@ -173,15 +173,14 @@ p {
 
 #lyrics,
 #lyrics p {
-  padding: 0.6rem 0 1.7rem 0.3rem;
+  padding: 9.6px 0 5px 0px;
   color: black;
   font-family: "Raleway";
   font-weight: bold;
   font-size: 1.3rem;
-  padding: 0.2rem;
-  line-height: 1.8rem;
+  line-height: 30px;
   text-align: left;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .logo {
@@ -189,15 +188,14 @@ p {
   height: 10px;
   width: 75px;
   align-items: center;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: rgb(93, 167, 76);
 }
 
 #logo-text {
   color: rgb(0, 0, 0);
   font-family: "Raleway";
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   margin-left: 5px;
   margin-right: 10px;
@@ -240,23 +238,34 @@ form {
 }
 
 .input-container {
-  display: flex;
+  display: flex; 
   align-items: center;
   justify-content: center;
   margin: 8px;
 }
 
 .input-container button {
-  width: 55%;
-  padding: 15px 30px;
+  font-family: 'Raleway';
+  width: 30%;
+  padding: 15px 10px;
   margin: 2px;
   border: none;
   border-radius: 5px;
   background-color: #4caf50;
-  color: #fff;
+  color: black;
   cursor: pointer;
   flex-shrink: 0;
   text-wrap: nowrap;
+  text-align: center;
+}
+
+#button5 {
+  width: 40%;
+}
+
+#button6 {
+  background-color: #b46e68;
+  font-weight: bold;
 }
 
 .large-buttons {
@@ -340,6 +349,7 @@ form {
 .color-pickers {
   display: flex;
   gap: 8px;
+  margin-top: 1px;
   position: relative;
  
 }
@@ -347,9 +357,8 @@ form {
 #color-square, 
 #color-square2, 
 #color-square3 {
-  
   height: 28px;
-  width: 29px;;
+  width: 29px;
   border-radius: 2px;
   position: absolute;
   z-index: 10;
@@ -368,7 +377,7 @@ form {
 
 #color-square3 {
   background-color: black;
-  left: 67.95px;
+  left: 68px;
 }
 
 
@@ -376,11 +385,12 @@ form {
 .download-button-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  
 }
 
 .download-button-container button {
-  padding: 5px;
+  width: 230px;
+  padding: 8px;
   background-color: #007bff;
   color: white;
   border: black solid 2px;
@@ -390,7 +400,7 @@ form {
   font-family: "Bebas Neue";
   font-size: 16px;
   letter-spacing: 2px;
-  width: 265px;
+ 
 }
 
 .download-button-container button:hover {
@@ -400,3 +410,14 @@ form {
 .guide p {
   display: none;  
 }
+
+.guide .invert {
+  display: block; 
+  font-family: 'Raleway';
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 20px;
+}
+
