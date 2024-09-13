@@ -239,7 +239,59 @@ function getScaleFactor() {
   } else {
     return 1.9; // Desktop view
   }
+} 
+
+// Change card size
+
+const sliderValue = document.getElementById("scaleRange");
+function changeScale() {
+
+  const isDesktop = window.matchMedia("(min-width: 40em)").matches;
+
+  if (!isDesktop) {
+    
+    if (sliderValue.value == "1") {
+      cardDiv.style.transform = `scale(0.6) !important`;  
+    } else if (sliderValue.value == "2") {
+      cardDiv.style.transform = `scale(0.7) !important`; 
+    } else if (sliderValue.value == "3") {
+      cardDiv.style.transform = `scale(0.8)`; 
+    } else if (sliderValue.value == "4") {
+      cardDiv.style.transform = `scale(0.9)`; 
+    } else if (sliderValue.value == "5") {
+      cardDiv.style.transform = `scale(1.0)`; 
+    } else if (sliderValue.value == "6") {
+      cardDiv.style.transform = `scale(1.1)`; 
+    } 
+  } else {
+    
+    if (sliderValue.value == "1") {
+      cardDiv.style.transform = `scale(0.8)`;  
+    } else if (sliderValue.value == "2") {
+      cardDiv.style.transform = `scale(0.9)`; 
+    } else if (sliderValue.value == "3") {
+      cardDiv.style.transform = `scale(1.0)`; 
+    } else if (sliderValue.value == "4") {
+      cardDiv.style.transform = `scale(1.1)`; 
+    } else if (sliderValue.value == "5") {
+      cardDiv.style.transform = `scale(1.2)`; 
+    } else if (sliderValue.value == "6") {
+      cardDiv.style.transform = `scale(1.3)`; 
+    } else if (sliderValue.value == "7") {
+      cardDiv.style.transform = `scale(1.4)`; 
+    } else if (sliderValue.value == "8") {
+      cardDiv.style.transform = `scale(1.5)`; 
+    } else if (sliderValue.value == "9") {
+      cardDiv.style.transform = `scale(1.6)`; 
+    } else if (sliderValue.value == "10") {
+      cardDiv.style.transform = `scale(1.7)`; 
+    }
+  }
 }
+
+sliderValue.oninput = changeScale;
+
+
 
 // Function to download the card as a JPEG image
 function downloadCardAsJPG() {
