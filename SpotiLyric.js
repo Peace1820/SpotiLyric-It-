@@ -46,6 +46,7 @@ function reset() {
     cardViewDiv.style.backgroundColor = "#00a573";
     document.body.style.backgroundColor = "#00a573";
     cardDiv.style.backgroundColor = "#1db954";
+    cardDiv.style.transform = `scale(1)`; 
     songTitle.style.color = 'black';
     artistName.style.color = 'black';
     lyricsText.style.color = 'black';
@@ -251,17 +252,19 @@ function changeScale() {
   if (!isDesktop) {
     
     if (sliderValue.value == "1") {
-      cardDiv.style.transform = `scale(0.6) !important`;  
+      cardDiv.style.transform = `scale(0.5)`;  
     } else if (sliderValue.value == "2") {
-      cardDiv.style.transform = `scale(0.7) !important`; 
+      cardDiv.style.transform = `scale(0.6)`; 
     } else if (sliderValue.value == "3") {
-      cardDiv.style.transform = `scale(0.8)`; 
+      cardDiv.style.transform = `scale(0.7)`; 
     } else if (sliderValue.value == "4") {
-      cardDiv.style.transform = `scale(0.9)`; 
+      cardDiv.style.transform = `scale(0.8)`; 
     } else if (sliderValue.value == "5") {
-      cardDiv.style.transform = `scale(1.0)`; 
+      cardDiv.style.transform = `scale(0.9)`; 
     } else if (sliderValue.value == "6") {
-      cardDiv.style.transform = `scale(1.1)`; 
+      cardDiv.style.transform = `scale(1.0)`;
+    } else if (sliderValue.value == "7") {
+      cardDiv.style.transform = `scale(1.1)`;
     } 
   } else {
     
