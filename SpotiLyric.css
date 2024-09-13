@@ -70,7 +70,7 @@ body {
     padding: 20px; 
     margin-top: 10px; 
     margin-bottom: 100px; 
-    transform: scale(1.35) !important;
+    transform: scale(0.8);
   }
 
   form {
@@ -92,7 +92,7 @@ body {
     right: 0;
     top: 0;
     background-color: rgb(35, 33, 33);
-    width: 50%;
+    width: 50% !important;
     z-index: 1;
   }
 
@@ -123,12 +123,27 @@ body {
     line-height: 20px;
 
   }
+
+  .slider {
+    width: 100% !important; 
+  }
 }
+
+.card {
+  transform: scale(0.4);
+}
+
+.form-container {
+  width: 100vw;
+
+}
+
 
 .card-view {
   background-color: var(--color);
   margin: 5px 0;
   padding: 45px 0;
+ 
 }
 
 .info-section {
@@ -161,6 +176,7 @@ p {
   width: 70px;
   height: 70px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 #info-text h1:focus {
@@ -281,6 +297,7 @@ form {
 .upload-container {
   font-family: "Raleway";
   border-color: black;
+  cursor: pointer;
 }
 
 .reset-container button,
@@ -300,6 +317,49 @@ form {
   background-color: #b46e68;
 }
 
+.slidecontainer {
+  width: 97%; 
+  display: flex;
+  justify-content: center;
+  margin: 5px 0 10px 0;
+}
+
+
+.slider {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 57%; 
+  height: 10px; 
+  border-radius: 4px; 
+  background: #d3d3d3; 
+  outline: black;
+  opacity: 0.7;
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1; 
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
 .custom-file-upload {
   background-color: #4ab9db;
 }
@@ -380,8 +440,6 @@ form {
   left: 68px;
 }
 
-
-
 .download-button-container {
   display: flex;
   justify-content: center;
@@ -420,4 +478,5 @@ form {
   margin-top: 8px;
   line-height: 20px;
 }
+
 
